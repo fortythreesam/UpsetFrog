@@ -1,0 +1,562 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Entities/Crab.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/SpearFrog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Environment/GroundTile.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Environment/VerticalGroundTransition.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Eyeball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Environment/Background1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Environment/Background2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/SafeguardExtended.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Assets/Environment/Background3.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1554, 23 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 208, 94 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 10 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( -966, 0 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 3000, 180 )
+region_filter_clip = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+position = Vector2( 514, 108 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2( 27, -15 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Background"]
+position = Vector2( 514, 202 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D2"]
+position = Vector2( 27, -15 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Background"]
+position = Vector2( -503, 275 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D3"]
+position = Vector2( -715, -158 )
+shape = SubResource( 2 )
+
+[node name="TutorialWall" type="ColorRect" parent="Background"]
+margin_left = -971.0
+margin_top = 43.0
+margin_right = -850.0
+margin_bottom = 67.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "ARROWS - Move"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall10" type="ColorRect" parent="Background"]
+margin_left = -844.0
+margin_top = 43.0
+margin_right = -723.0
+margin_bottom = 67.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "ESCAPE - Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall2" type="ColorRect" parent="Background"]
+margin_left = -652.0
+margin_top = 43.0
+margin_right = -531.0
+margin_bottom = 90.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "X - Attack
+Hold to charge"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall3" type="ColorRect" parent="Background"]
+margin_left = -526.0
+margin_top = 43.0
+margin_right = -405.0
+margin_bottom = 90.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "Attacking uses
+up stamina!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall7" type="ColorRect" parent="Background"]
+margin_left = -149.0
+margin_top = 43.0
+margin_right = -28.0
+margin_bottom = 90.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "But not at 
+full health!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall6" type="ColorRect" parent="Background"]
+margin_left = -274.0
+margin_top = 43.0
+margin_right = -153.0
+margin_bottom = 65.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "C - Heal
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall4" type="ColorRect" parent="Background"]
+margin_left = 117.0
+margin_top = 43.0
+margin_right = 238.0
+margin_bottom = 65.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "SPACE - Roll"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall5" type="ColorRect" parent="Background"]
+margin_left = 244.0
+margin_top = 43.0
+margin_right = 365.0
+margin_bottom = 101.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "Rolling lets you
+avoid getting
+hurt!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall8" type="ColorRect" parent="Background"]
+margin_left = 608.0
+margin_top = 43.0
+margin_right = 742.0
+margin_bottom = 101.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "Small projectiles
+can be reflected!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall9" type="ColorRect" parent="Background"]
+margin_left = 1122.0
+margin_top = 43.0
+margin_right = 1256.0
+margin_bottom = 101.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "Good Luck!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialWall11" type="ColorRect" parent="Background"]
+margin_left = 984.0
+margin_top = 43.0
+margin_right = 1118.0
+margin_bottom = 101.0
+color = Color( 0.917647, 0.780392, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="ColorRect" parent="Background/TutorialWall11"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+color = Color( 0.109804, 0.133333, 0.14902, 1 )
+
+[node name="Select" type="Label" parent="Background/TutorialWall11"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.917647, 0.780392, 0.721569, 1 )
+text = "By sam drugan
+@samlowercase"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Environment" type="Node2D" parent="."]
+position = Vector2( -530, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="Environment"]
+margin_left = -2116.0
+margin_top = 116.0
+margin_right = 1657.0
+margin_bottom = 194.0
+color = Color( 0.133333, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Environment"]
+margin_left = -2070.0
+margin_top = 116.0
+margin_right = 916.0
+margin_bottom = 165.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VerticalTransition" type="Sprite" parent="Environment"]
+position = Vector2( 905, 148 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
+
+[node name="Back" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Environment/ParallaxBackground/Back"]
+margin_left = -2269.0
+margin_top = 21.0
+margin_right = 1093.0
+margin_bottom = 116.0
+texture = ExtResource( 11 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mid" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Environment/ParallaxBackground/Mid"]
+margin_left = -2266.0
+margin_top = 21.0
+margin_right = 1093.0
+margin_bottom = 116.0
+texture = ExtResource( 9 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fore" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="Environment/ParallaxBackground/Fore"]
+margin_left = -2271.0
+margin_top = 21.0
+margin_right = 1661.0
+margin_bottom = 116.0
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevel" type="Area2D" parent="Environment"]
+position = Vector2( 922, 151 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Environment/NextLevel"]
+polygon = PoolVector2Array( -6, -35, -28, 14, -28, 29, 2, 29, 3, -35 )
+
+[node name="Entities" type="YSort" parent="."]
+
+[node name="Crab" parent="Entities" instance=ExtResource( 1 )]
+position = Vector2( -1892, 138 )
+potions = 3
+attack_cooldown = 0.3
+
+[node name="SpearFrog" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( -1250, 140 )
+max_health = 30.0
+potion_drop_chance = 1.0
+
+[node name="Obstacles" type="YSort" parent="Entities"]
+position = Vector2( 551, 134 )
+
+[node name="Spikes" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1250, 2 )
+
+[node name="Spikes6" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1220, 4 )
+
+[node name="Spikes7" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1190, 4 )
+
+[node name="Eyeball" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( -67, 134 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -2122.0
+margin_top = 165.0
+margin_right = 893.0
+margin_bottom = 205.0
+color = Color( 0.133333, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Environment/NextLevel" to="." method="_on_NextLevel_body_entered"]

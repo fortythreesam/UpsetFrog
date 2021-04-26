@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/frognotice.wav-7dead0e7d2438a3fb450393770a3fbf6.sample"
+
+[deps]
+
+source_file="res://Assets/SoundFX/frognotice.wav"
+dest_files=[ "res://.import/frognotice.wav-7dead0e7d2438a3fb450393770a3fbf6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

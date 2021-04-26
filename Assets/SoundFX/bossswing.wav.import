@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bossswing.wav-bbb19c139c43d81cb7433f4e6ec2cdd6.sample"
+
+[deps]
+
+source_file="res://Assets/SoundFX/bossswing.wav"
+dest_files=[ "res://.import/bossswing.wav-bbb19c139c43d81cb7433f4e6ec2cdd6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

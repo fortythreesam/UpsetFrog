@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bosshit.wav-8016b60f11556cb523a53f9aec1b3ba7.sample"
+
+[deps]
+
+source_file="res://Assets/SoundFX/bosshit.wav"
+dest_files=[ "res://.import/bosshit.wav-8016b60f11556cb523a53f9aec1b3ba7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

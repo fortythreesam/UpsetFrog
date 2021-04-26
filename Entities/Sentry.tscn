@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Crab/Sentry_attack0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Crab/Sentry_idle0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Crab/Sentry_attack_start0.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Sentry.gd" type="Script" id=4]
+[ext_resource path="res://Entities/Projectiles/PurpleSphereSmall.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "attack_end",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "attack_start",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2, 3 )
+
+[node name="Sentry" type="KinematicBody2D" groups=[
+"enemies",
+"frogs",
+]]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource( 4 )
+max_health = 20000.0
+max_stamina = 1000.0
+knockback_strengh = 0.0
+max_x_speed = 0.0
+max_y_speed = 0.0
+projectile = ExtResource( 5 )
+projectile_speed = 100.0
+projectile_life = 1.0
+launch_from = Vector2( -5, -10 )
+invincible = true
+attack_range = 300
+attack_range_y = 100
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -3 )
+frames = SubResource( 1 )
+animation = "attack"
+playing = true
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2( -24, -8 )
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 19, 4 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 1, -2 )
+polygon = PoolVector2Array( 4, 2, 0, 5, -5, 2, 0, 0 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="shoot" type="AudioStreamPlayer" parent="Sounds"]
+bus = "SoundFX"

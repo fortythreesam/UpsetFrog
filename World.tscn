@@ -1,0 +1,239 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Entities/Crab.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/SpearFrog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Environment/GroundTile.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Environment/VerticalGroundTransition.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Eyeball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Environment/Background1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Environment/Background2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Temporary/TempBackground.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Environment/Background3.png" type="Texture" id=11]
+[ext_resource path="res://Entities/EyeballPlant.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/Sentry.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Environment/ShortWall.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1554, 23 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 208, 94 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Background" type="Sprite" parent="."]
+visible = false
+position = Vector2( -966, 0 )
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 3000, 180 )
+region_filter_clip = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+position = Vector2( 514, 108 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2( 27, -15 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Background"]
+position = Vector2( 514, 202 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D2"]
+position = Vector2( 27, -15 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Background"]
+position = Vector2( 661, 275 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D3"]
+position = Vector2( -1853, -152 )
+shape = SubResource( 2 )
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Environment"]
+margin_left = -2116.0
+margin_top = 116.0
+margin_right = 1657.0
+margin_bottom = 194.0
+color = Color( 0.133333, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Environment"]
+margin_left = -2070.0
+margin_top = 116.0
+margin_right = 916.0
+margin_bottom = 165.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VerticalTransition" type="Sprite" parent="Environment"]
+position = Vector2( 905, 148 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
+
+[node name="Back" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Environment/ParallaxBackground/Back"]
+margin_left = -2269.0
+margin_top = 21.0
+margin_right = 1093.0
+margin_bottom = 116.0
+texture = ExtResource( 11 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mid" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Environment/ParallaxBackground/Mid"]
+margin_left = -2266.0
+margin_top = 21.0
+margin_right = 1093.0
+margin_bottom = 116.0
+texture = ExtResource( 9 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fore" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="Environment/ParallaxBackground/Fore"]
+margin_left = -2273.0
+margin_top = 21.0
+margin_right = 1659.0
+margin_bottom = 116.0
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevel" type="Area2D" parent="Environment"]
+position = Vector2( 922, 151 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Environment/NextLevel"]
+polygon = PoolVector2Array( -6, -35, -28, 14, -28, 29, -6, 29 )
+
+[node name="Entities" type="YSort" parent="."]
+
+[node name="Crab" parent="Entities" instance=ExtResource( 1 )]
+position = Vector2( -1902, 135 )
+potions = 3
+attack_cooldown = 0.3
+
+[node name="SpearFrog" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( -1527, 140 )
+max_health = 30.0
+potion_drop_chance = 1.0
+
+[node name="SpearFrog2" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( -737, 152 )
+
+[node name="SpearFrog7" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( -471, 142 )
+
+[node name="SpearFrog3" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( -736, 128 )
+
+[node name="SpearFrog4" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 576, 125 )
+
+[node name="SpearFrog5" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 612, 145 )
+
+[node name="SpearFrog6" parent="Entities" instance=ExtResource( 2 )]
+position = Vector2( 588, 163 )
+
+[node name="Obstacles" type="YSort" parent="Entities"]
+position = Vector2( 138, 134 )
+
+[node name="Spikes" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1250, 2 )
+
+[node name="Spikes6" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1220, 4 )
+
+[node name="Spikes7" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1190, 4 )
+
+[node name="Spikes2" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1159, 5 )
+
+[node name="Spikes3" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1281, 1 )
+
+[node name="Spikes4" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1159, -12 )
+
+[node name="Spikes5" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -1281, 17 )
+
+[node name="Spikes8" parent="Entities/Obstacles" instance=ExtResource( 5 )]
+position = Vector2( -78, -1 )
+
+[node name="ShortWall" parent="Entities/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -44, 0 )
+
+[node name="ShortWall2" parent="Entities/Obstacles" instance=ExtResource( 14 )]
+position = Vector2( -111, 1 )
+
+[node name="Eyeball" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( -1212, 144 )
+
+[node name="Eyeball2" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( -434, 142 )
+
+[node name="Eyeball3" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( -166, 129 )
+
+[node name="Eyeball4" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( -166, 152 )
+
+[node name="Eyeball5" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 337, 137 )
+
+[node name="EyeballPlant" parent="Entities" instance=ExtResource( 12 )]
+position = Vector2( 813, 116 )
+
+[node name="ColorRect2" type="ColorRect" parent="Entities"]
+margin_left = -2122.0
+margin_top = 165.0
+margin_right = 893.0
+margin_bottom = 205.0
+color = Color( 0.133333, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sentry" parent="Entities" instance=ExtResource( 13 )]
+position = Vector2( 173, 124 )
+vision_range = 220
+
+[node name="Sentry3" parent="Entities" instance=ExtResource( 13 )]
+position = Vector2( 339, 120 )
+vision_range = 220
+
+[node name="Sentry4" parent="Entities" instance=ExtResource( 13 )]
+position = Vector2( 343, 151 )
+vision_range = 220
+
+[node name="Sentry2" parent="Entities" instance=ExtResource( 13 )]
+position = Vector2( 176, 151 )
+
+[connection signal="body_entered" from="Environment/NextLevel" to="." method="_on_NextLevel_body_entered"]
